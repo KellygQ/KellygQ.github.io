@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tienda de Electrodomésticos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-top: 30px;
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .producto {
+      background: white;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    form input, form textarea {
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #0055aa;
+    }
+
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    .seccion {
+      display: none;
+    }
+
+    .activo {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tienda de Electrodomésticos</h1>
+    <nav>
+      <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+      <a href="#" onclick="mostrarSeccion('contacto')">Contáctenos</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sección Inicio -->
+    <section id="inicio" class="seccion activo">
+      <h2>Bienvenido a nuestra tienda</h2>
+      <p>Encuentra los mejores electrodomésticos para tu hogar.</p>
+
+      <div class="productos">
+        <div class="producto">
+          <img src="https://via.placeholder.com/200" alt="Refrigerador">
+          <h3>Refrigerador</h3>
+          <p>$1.200.000</p>
+        </div>
+        <div class="producto">
+          <img src="https://via.placeholder.com/200" alt="Lavadora">
+          <h3>Lavadora</h3>
+          <p>$950.000</p>
+        </div>
+        <div class="producto">
+          <img src="https://via.placeholder.com/200" alt="Microondas">
+          <h3>Microondas</h3>
+          <p>$350.000</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="seccion">
+      <h2>Contáctenos</h2>
+      <form id="form-contacto">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" required>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tienda de Electrodomésticos</p>
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.seccion').forEach(s => s.classList.remove('activo'));
+      document.getElementById(id).classList.add('activo');
+    }
+
+    document.getElementById('form-contacto').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Gracias por contactarnos! Te responderemos pronto.');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
